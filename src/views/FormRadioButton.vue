@@ -1,22 +1,29 @@
 <template>
-  <div class="header">
-    <Logo />
-    <div>
-      <form class="content">
-        <div v-bind="item" v-for="item in checkedNames" :key="item" class="div">
-          <label class="label"
-            ><input
-              name="choice"
-              type="radio"
-              class="radio"
-              value="item"
-              v-model="user"
-            /><span class="icon"></span>
-            {{ item }}
-          </label>
-        </div>
-        <Button text="Відправити" />
-      </form>
+  <div>
+    <div class="header">
+      <Logo />
+      <div class="content">
+        <form>
+          <div
+            v-bind="item"
+            v-for="item in checkedNames"
+            :key="item"
+            class="div"
+          >
+            <label class="label"
+              ><input
+                name="choice"
+                type="radio"
+                class="radio"
+                value="item"
+                v-model="user"
+              /><span class="icon"></span>
+              {{ item }}
+            </label>
+          </div>
+          <Button text="Відправити" />
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -42,26 +49,28 @@ export default {
 @import "../assets/scss/_variables.scss";
 @import "../assets/scss/_reset.scss";
 .header {
-  width: 100%;
+  display: flex;
 }
 .content {
   display: flex;
   flex-direction: column;
   color: white;
+  padding-top: 5px;
 }
 .radio {
-  margin: 15px;
+  margin: 5px 10px;
   appearance: none;
 }
 .icon {
   content: "";
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background-color: white;
   border-radius: 20px;
-  margin-right: 15px;
-  border: 4px solid;
+  margin-right: 5px;
+  margin-left: -20px;
+  border: 2px solid;
   border-color: white;
 }
 .radio:checked + .icon {
@@ -69,6 +78,6 @@ export default {
 }
 .label {
   display: block;
-  height: 50px;
+  padding: 3px 0px;
 }
 </style>

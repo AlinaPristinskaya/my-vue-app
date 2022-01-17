@@ -21,12 +21,11 @@ export default {
 #app {
   /*  display: flex;
   flex-direction: column; */
-  min-height: 100vh;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $bg;
-  font-size: 24px;
+  font-size: 12px;
 }
 .base {
   @include container();

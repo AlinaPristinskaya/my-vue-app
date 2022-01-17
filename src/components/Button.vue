@@ -22,9 +22,9 @@ export default {
   display: inline-block;
   background: #fff;
   color: black;
-  padding: 8px 15px;
-  border-radius: 10px;
+  padding: 8px 8px;
+  border-radius: 6px;
   border: none;
-  font-size: 24px;
+  font-size: 10px;
 }
 </style>
