@@ -12,10 +12,19 @@ const routes = [
     name: "/choice",
   },
   {
-    path: "/:code",
+    path: "/:id",
     component: Confirmation,
   },
 ];
+/* const routes = [
+  {
+    path: "/",
+    components: {
+      a: Confirmation,
+      b: FormRadioButton,
+    },
+  },
+]; */
 
 const router = new VueRouter({
   mode: "history",

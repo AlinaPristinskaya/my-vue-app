@@ -1,8 +1,16 @@
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:3005/trackingInfo";
 
-const fetchTracking = (code) => {
-  return axios.get(`/${code}`).then((response) => response.data);
+const fetchTrackingId = (id) => {
+  return axios.get(`/${id}`).then((response) => response.data);
 };
 
-export default { fetchTracking };
+const fetchChoice = ({ id, value }) => {
+  const data = {
+    choice: value,
+  };
+
+  return axios.patch(`/${id}`, data).then((response) => response.data);
+};
+
+export default { fetchTrackingId, fetchChoice };

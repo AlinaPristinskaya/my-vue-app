@@ -5,11 +5,11 @@
       <div class="content">
         <p class="p">
           Для Вас запланована доставка продукції згідно замовлення
-          {{ trackings.Name }}cvbcghncghncgngvbcxfb
+          {{ trackings.Name }}
         </p>
-        <p class="p">Плановий час доставки{{}}</p>
+        <p class="p">Плановий час доставки {{ tracking.EstimateTime }}</p>
         <router-link to="/choice">
-          <Button text="Перейти до форми підтвердження" />
+          <Button text="Перейти до форми підтвердження" type="button" />
         </router-link>
       </div>
     </div>
@@ -31,13 +31,15 @@ export default {
     return { tracking: {} };
   },
   async created() {
-    const codeTtacking = this.$route.params.Code;
-    console.log(codeTtacking);
-    if (codeTtacking) {
+    const id = this.$route.params.id;
+    console.log(id);
+    if (id) {
       try {
-        const { data } = await a.fetchTracking(codeTtacking);
-        this.tracking = data;
-        console.log(data);
+        await a.fetchTrackingId(id).then((res) => {
+          this.tracking = res;
+          this.$store.commit("getTracking", res);
+          console.log(this.$store.state);
+        });
       } catch (error) {
         console.error(error);
       }

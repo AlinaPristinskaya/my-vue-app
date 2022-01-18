@@ -3,25 +3,24 @@
     <div class="header">
       <Logo />
       <div class="content">
-        <form>
-          <div
-            v-bind="item"
-            v-for="item in checkedNames"
-            :key="item"
-            class="div"
-          >
+        <form @submit.prevent="goChoice">
+          <div v-for="item in checkedNames" :key="item" class="div">
             <label class="label"
               ><input
+                v-model="checedInput"
                 name="choice"
                 type="radio"
                 class="radio"
-                value="item"
-                v-model="user"
+                v-bind:value="checkedNames.indexOf(item)"
               /><span class="icon"></span>
               {{ item }}
             </label>
           </div>
-          <Button text="Відправити" />
+          <Button
+            v-on:click.prevent="goChoice"
+            text="Відправити"
+            type="submit"
+          />
         </form>
       </div>
     </div>
@@ -31,6 +30,7 @@
 <script>
 import Logo from "../components/Logo.vue";
 import Button from "../components/Button.vue";
+import a from "../servicec/trackingApi";
 export default {
   name: "FormRadioButton",
   components: {
@@ -39,8 +39,29 @@ export default {
   },
   data() {
     return {
+      checedInput: "",
       checkedNames: ["Підтвердити", "Скасувати", "Зателефонуйте мені"],
     };
+  },
+  methods: {
+    async goChoice() {
+      console.log(this.$store.state);
+      const choiceValue = this.checedInput;
+      const id = this.$store.state.trackingInfo.id;
+      const body = { id: id, choice: choiceValue };
+      console.log(body);
+      if (choiceValue === 0 || choiceValue) {
+        try {
+          await a.fetchChoice(body).then((res) => {
+            console.log(res);
+            this.$store.commit("getChoice", body);
+            console.log(this.$store.state);
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    },
   },
 };
 </script>

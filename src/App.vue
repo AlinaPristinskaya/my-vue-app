@@ -7,10 +7,6 @@
 <script>
 export default {
   name: "App",
-  /* components:{
-    Confirmation,
-    FormRadioButton
-  } */
 };
 </script>
 

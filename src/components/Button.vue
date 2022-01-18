@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" type="button">
+  <button v-on="$listeners" class="btn">
     {{ text }}
   </button>
 </template>

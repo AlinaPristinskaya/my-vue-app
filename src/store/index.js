@@ -1,11 +1,34 @@
 import Vue from "vue";
 import Vuex from "vuex";
+//import a from "../servicec/trackingApi";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+const initialState = {
+  trackingInfo: "",
+  choice: "",
+};
+
+const store = new Vuex.Store({
+  state: { ...initialState },
+  mutations: {
+    getTracking(state, tracking) {
+      state.trackingInfo = tracking;
+    },
+    getChoice(state, data) {
+      state.choice = data.choice;
+    },
+  },
+  /* actions: {
+    async getTracking({ commit }, payload) {
+      const { data } = await a.fetchTrackingId(payload);
+      commit("getTracking", data);
+    },
+    async patchChoice({ commit }, payload) {
+      const { data } = await a.fetchChoice(payload);
+      commit("getTracking", data.choice);
+    },
+  }, */
   modules: {},
 });
+export default store;
