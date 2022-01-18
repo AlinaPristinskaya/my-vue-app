@@ -25,7 +25,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $bg;
-  font-size: 12px;
+  font-size: 24px;
 }
 .base {
   @include container();

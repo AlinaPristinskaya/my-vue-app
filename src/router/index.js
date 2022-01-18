@@ -7,13 +7,13 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    component: Confirmation,
+    path: "/choice",
+    component: FormRadioButton,
+    name: "/choice",
   },
   {
-    path: "/form-radio",
-    component: FormRadioButton,
-    name: "form-radio",
+    path: "/:code",
+    component: Confirmation,
   },
 ];
 

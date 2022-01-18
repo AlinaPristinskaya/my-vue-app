@@ -50,12 +50,18 @@ export default {
 @import "../assets/scss/_reset.scss";
 .header {
   display: flex;
+  flex-direction: column;
 }
 .content {
   display: flex;
   flex-direction: column;
   color: white;
-  padding-top: 5px;
+  padding: 20px;
+  align-items: center;
+  width: 100%;
+  :not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 .radio {
   margin: 5px 10px;

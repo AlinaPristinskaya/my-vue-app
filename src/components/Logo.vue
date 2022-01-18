@@ -14,11 +14,13 @@ export default {
 .logo {
   padding: 0;
   margin: 0;
-  height: auto;
-  width: auto;
+  align-items: left;
+  width: 100%;
 }
 .img {
   display: block;
   background: white;
+  height: 50;
+  width: 50;
 }
 </style>

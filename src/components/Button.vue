@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">
+  <button class="btn" type="button">
     {{ text }}
   </button>
 </template>
@@ -25,6 +25,6 @@ export default {
   padding: 8px 8px;
   border-radius: 6px;
   border: none;
-  font-size: 10px;
+  font-size: 24px;
 }
 </style>
