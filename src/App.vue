@@ -1,12 +1,17 @@
 <template>
   <div id="app" class="base">
+    <Notification />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Notification from "./components/Notification.vue";
 export default {
   name: "App",
+  components: {
+    Notification,
+  },
 };
 </script>
 
@@ -15,8 +20,6 @@ export default {
 @import "./assets/scss/_variables.scss";
 
 #app {
-  /*  display: flex;
-  flex-direction: column; */
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

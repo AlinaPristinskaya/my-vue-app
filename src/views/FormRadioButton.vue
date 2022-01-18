@@ -30,7 +30,7 @@
 <script>
 import Logo from "../components/Logo.vue";
 import Button from "../components/Button.vue";
-import a from "../servicec/trackingApi";
+//import a from "../servicec/trackingApi";
 export default {
   name: "FormRadioButton",
   components: {
@@ -45,18 +45,18 @@ export default {
   },
   methods: {
     async goChoice() {
-      console.log(this.$store.state);
       const choiceValue = this.checedInput;
       const id = this.$store.state.trackingInfo.id;
       const body = { id: id, choice: choiceValue };
       console.log(body);
       if (choiceValue === 0 || choiceValue) {
         try {
-          await a.fetchChoice(body).then((res) => {
+          await this.$store.dispatch("patchChoice", body);
+          /* await a.fetchChoice(body).then((res) => {
             console.log(res);
             this.$store.commit("getChoice", body);
             console.log(this.$store.state);
-          });
+          }); */
         } catch (error) {
           console.error(error);
         }

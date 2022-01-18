@@ -19,7 +19,7 @@
 <script>
 import Button from "../components/Button.vue";
 import Logo from "../components/Logo.vue";
-import a from "../servicec/trackingApi";
+//import a from "../servicec/trackingApi";
 
 export default {
   name: "Confirmation",
@@ -28,20 +28,26 @@ export default {
     Button,
   },
   data() {
-    return { tracking: {} };
+    return { tracking: this.$store.state.trackingInfo };
   },
   async created() {
     const id = this.$route.params.id;
     console.log(id);
     if (id) {
       try {
-        await a.fetchTrackingId(id).then((res) => {
+        await this.$store.dispatch("getTracking", id);
+        console.log(this.$store.state);
+        /*  await a.fetchTrackingId(id).then((res) => {
           this.tracking = res;
           this.$store.commit("getTracking", res);
           console.log(this.$store.state);
-        });
+        }); */
       } catch (error) {
-        console.error(error);
+        this.$notify({
+          type: "error",
+          title: "Виникла помилка",
+          text: error.message,
+        });
       }
     }
   },

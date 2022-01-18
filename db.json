@@ -33,7 +33,8 @@
           "CargoNameCode": "Розчинна суміш РК М100 П8 ",
           "CargoCount": "1"
         }
-      ]
+      ],
+      "isChoice": 1
     },
     {
       "id": "2",
@@ -68,7 +69,8 @@
           "CargoNameCode": "Розчинна суміш РК М100 П8 ",
           "CargoCount": "1"
         }
-      ]
+      ],
+      "isChoice": 1
     },
     {
       "id": "3",
@@ -103,7 +105,8 @@
           "CargoNameCode": "Розчинна суміш РК М100 П8 ",
           "CargoCount": "1"
         }
-      ]
+      ],
+      "isChoice": 0
     }
   ]
 }

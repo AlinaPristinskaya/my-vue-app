@@ -16,15 +16,6 @@ const routes = [
     component: Confirmation,
   },
 ];
-/* const routes = [
-  {
-    path: "/",
-    components: {
-      a: Confirmation,
-      b: FormRadioButton,
-    },
-  },
-]; */
 
 const router = new VueRouter({
   mode: "history",
